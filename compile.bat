@@ -1,5 +1,6 @@
 @echo off
 mkdir logs 2>nul
+mkdir output 2>nul
 setlocal EnableDelayedExpansion
 
 copy /Y input\AUTOEXEC.OLD input\AUTOEXEC.BAT > nul
