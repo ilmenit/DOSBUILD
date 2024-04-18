@@ -6,7 +6,7 @@
 ** Use VBoxManage or the VirtualBox Manager GUI to make changes.
 -->
 <VirtualBox xmlns="http://www.virtualbox.org/" version="1.19-windows">
-  <Machine uuid="{e7bab142-3d8f-4089-9474-8a73024abf91}" name="DOSIMG" OSType="DOS" snapshotFolder="Snapshots" lastStateChange="2024-04-18T11:20:28Z">
+  <Machine uuid="{e7bab142-3d8f-4089-9474-8a73024abf91}" name="DOSIMG" OSType="DOS" snapshotFolder="Snapshots" lastStateChange="2024-04-18T11:23:42Z">
     <MediaRegistry>
       <FloppyImages>
         <Image uuid="{9cba2a7f-4cbb-4eb9-bff1-480a97993730}" location="C:/DOSBUILD/output/main.img"/>
@@ -15,7 +15,7 @@
     <ExtraData>
       <ExtraDataItem name="GUI/LastCloseAction" value="PowerOff"/>
       <ExtraDataItem name="GUI/LastNormalWindowPosition" value="1,1,640,400"/>
-      <ExtraDataItem name="GUI/LastScaleWindowPosition" value="20,70,640,400"/>
+      <ExtraDataItem name="GUI/LastScaleWindowPosition" value="10,10,640,400"/>
       <ExtraDataItem name="GUI/Scale" value="true"/>
     </ExtraData>
     <Hardware>
@@ -47,9 +47,6 @@
       <Clipboard/>
       <GuestProperties>
         <GuestProperty name="/VirtualBox/HostInfo/GUI/LanguageID" value="en_US" timestamp="1713439236169070800" flags="RDONLYGUEST"/>
-        <GuestProperty name="/VirtualBox/HostInfo/VBoxRev" value="161095" timestamp="1713439228133258002" flags="TRANSIENT, RDONLYGUEST"/>
-        <GuestProperty name="/VirtualBox/HostInfo/VBoxVer" value="7.0.14" timestamp="1713439228133258000" flags="TRANSIENT, RDONLYGUEST"/>
-        <GuestProperty name="/VirtualBox/HostInfo/VBoxVerExt" value="7.0.14" timestamp="1713439228133258001" flags="TRANSIENT, RDONLYGUEST"/>
       </GuestProperties>
       <StorageControllers>
         <StorageController name="Floppy" type="I82078" PortCount="1" useHostIOCache="true" Bootable="true">
