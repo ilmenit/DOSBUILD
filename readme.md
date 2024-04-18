@@ -1,4 +1,4 @@
-# DOSBUILD environment by Jakub Debski (Ilmenit/Agenda)
+# DOSBUILD environment
 
 The DOSBUILD environment is a time-saver for writing code in NASM for FreeDOS.
 It allows *one-click compilation* and debugging, or even *no-click compilation* (with a watcher over file changes).
