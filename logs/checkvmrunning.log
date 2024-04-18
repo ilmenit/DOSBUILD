@@ -44,7 +44,7 @@ AMD-V Virt. Vmsave/Vmload:   enabled
 IOMMU:                       None
 Paravirt. Provider:          Default
 Effective Paravirt. Prov.:   None
-State:                       running (since 2024-04-18T11:20:28.134000000)
+State:                       running (since 2024-04-18T11:24:51.806000000)
 Graphics Controller:         VBoxVGA
 Monitor count:               1
 3D Acceleration:             disabled

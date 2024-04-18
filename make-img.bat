@@ -10,7 +10,7 @@ call virtualbox\registervm.bat
 
 echo - shutting down VM
 
-del /Y logs\checkvmrunning.log > nul
+del logs\checkvmrunning.log > nul
 
 :: Shut down the VM to unlock main.img
 call virtualbox\shutdownvm.bat
@@ -28,7 +28,7 @@ if !errorlevel! == 0 (
     goto terminate
 )
 
-del /Y logs\checkvmrunning.log > nul
+del logs\checkvmrunning.log > nul
 
 :: Replace main.com in the input folder with the one that was just created
 copy /Y main.com input\main.com >nul 
