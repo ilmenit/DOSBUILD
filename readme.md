@@ -14,10 +14,12 @@ Build environment must be in C:\DOSBUILD (so you will have folders like C:\DOSBU
 To automate workflow with VirtualBox you need to add a command line support to it.
 
 Install *VirtualBox 7.0* (if you don't have it yet):
+
 1. Download VirtualBox *for Windows* from https://www.virtualbox.org/wiki/Downloads . No other platforms are supported yet.
 2. Install VirtualBox into default path (C:\Program Files\Oracle\VirtualBox)
 
 Install Extension Pack:
+
 3. Download the "Extension Pack", also from https://www.virtualbox.org/wiki/Downloads 
 4. Click on the downloaded pack file to launch installation, it should start the VirtualBox and through it install it.
 5. If the VirtualBox is not launching automatically to install the pack, then for VirtualBox 7.0:
