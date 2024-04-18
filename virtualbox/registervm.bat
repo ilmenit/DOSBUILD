@@ -1,2 +1,8 @@
 @echo off
-"C:\Program Files\Oracle\VirtualBox\VBoxManage.exe" registervm C:\DOSBUILD\virtualbox\DOSIMG\DOSIMG.vbox 2> logs\registervm.log
+SET VBoxManagePath=%ProgramFiles%\Oracle\VirtualBox\VBoxManage.exe
+
+IF EXIST "%VBoxManagePath%" (
+    "%VBoxManagePath%" registervm C:\DOSBUILD\virtualbox\DOSIMG\DOSIMG.vbox 2> logs\registervm.log
+) ELSE (
+    echo VBoxManage.exe not found.
+)

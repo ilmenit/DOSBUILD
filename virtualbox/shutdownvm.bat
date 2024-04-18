@@ -1,2 +1,8 @@
 @echo off
-"C:\Program Files\Oracle\VirtualBox\VBoxManage.exe" controlvm "DOSIMG" poweroff --type headless
+SET VBoxManagePath=%ProgramFiles%\Oracle\VirtualBox\VBoxManage.exe
+
+IF EXIST "%VBoxManagePath%" (
+    "%VBoxManagePath%" controlvm "DOSIMG" poweroff --type headless
+) ELSE (
+    echo VBoxManage.exe not found.
+)
