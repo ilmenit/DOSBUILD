@@ -8,13 +8,14 @@ It's integrated with VirtualBox so the correctly compiled *main.asm* file get au
 
 ## Setup
 
-Build environment must be in C:\DOSBUILD (so you will have folders like C:\DOSBUILD\input)
+Clone or Download the whole GitHub repo (Code -> Download ZIP).
+Build environment must be in C:\DOSBUILD (so you will have folders like C:\DOSBUILD\input).
 
-To automate use with VirtualBox you need to add a command line support to it.
+To automate workflow with VirtualBox you need to add a command line support to it.
 
-Install VirtualBox:
-1. Download VirtualBox 7.0 for Windows from https://www.virtualbox.org/wiki/Downloads
-2. Install VirtualBox 7.0 into default path (C:\Program Files\Oracle\VirtualBox)
+Install *VirtualBox 7.0* (if you don't have it yet):
+1. Download VirtualBox *for Windows* from https://www.virtualbox.org/wiki/Downloads . No other platforms are supported yet.
+2. Install VirtualBox into default path (C:\Program Files\Oracle\VirtualBox)
 
 Install Extension Pack:
 3. Download the "Extension Pack", also from https://www.virtualbox.org/wiki/Downloads 
