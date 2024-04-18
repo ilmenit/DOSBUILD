@@ -48,7 +48,7 @@ if exist output\main.img (
 echo - building a new .img
 
 :: Use bfi to create a new main.img file
-bfi\bfi.exe -f=output\main.img -b=freedos\freedos.boot.sector.1.4MB.img input
+bfi\bfi.exe -f=output\main.img -b=freedos\boot.bin input
 
 :: Check for errors after bfi command
 if not errorlevel 0 (
