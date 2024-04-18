@@ -9,6 +9,7 @@ It's integrated with VirtualBox so the correctly compiled *main.asm* file get au
 ## Setup
 
 Clone or Download the whole GitHub repo (Code -> Download ZIP).
+
 Build environment must be in C:\DOSBUILD (so you will have folders like C:\DOSBUILD\input).
 
 To automate workflow with VirtualBox you need to add a command line support to it.
