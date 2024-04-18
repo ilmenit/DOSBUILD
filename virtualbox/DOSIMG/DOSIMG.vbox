@@ -6,7 +6,7 @@
 ** Use VBoxManage or the VirtualBox Manager GUI to make changes.
 -->
 <VirtualBox xmlns="http://www.virtualbox.org/" version="1.19-windows">
-  <Machine uuid="{e7bab142-3d8f-4089-9474-8a73024abf91}" name="DOSIMG" OSType="DOS" snapshotFolder="Snapshots" lastStateChange="2024-04-18T11:27:39Z">
+  <Machine uuid="{e7bab142-3d8f-4089-9474-8a73024abf91}" name="DOSIMG" OSType="DOS" snapshotFolder="Snapshots" lastStateChange="2024-04-18T22:13:12Z">
     <MediaRegistry>
       <FloppyImages>
         <Image uuid="{9cba2a7f-4cbb-4eb9-bff1-480a97993730}" location="C:/DOSBUILD/output/main.img"/>
@@ -46,7 +46,7 @@
       <AudioAdapter controller="SB16" useDefault="true" driver="WAS" enabled="true" enabledOut="true"/>
       <Clipboard/>
       <GuestProperties>
-        <GuestProperty name="/VirtualBox/HostInfo/GUI/LanguageID" value="en_US" timestamp="1713439604575450200" flags="RDONLYGUEST"/>
+        <GuestProperty name="/VirtualBox/HostInfo/GUI/LanguageID" value="en_US" timestamp="1713478351918220900" flags="RDONLYGUEST"/>
       </GuestProperties>
       <StorageControllers>
         <StorageController name="Floppy" type="I82078" PortCount="1" useHostIOCache="true" Bootable="true">

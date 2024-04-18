@@ -8,28 +8,29 @@ echo - registering VM (if not registered)
 :: Register VM if not registered
 call virtualbox\registervm.bat
 
-echo - shutting down VM
-
-del logs\checkvmrunning.log > nul
-
-:: Shut down the VM to unlock main.img
-call virtualbox\shutdownvm.bat
-
-call virtualbox\checkvmrunning.bat
-
-:terminate
-findstr /c:"running (" logs\checkvmrunning.log
+echo - removing previous floppy
+call virtualbox\removefloppy.bat
 if !errorlevel! == 0 (
-	echo Machine not terminated, trying again...
-    timeout /t 1
+	echo   Floppy removed
+) else (
+	echo - Cannot remove floppy, shutting down VM
+	del logs\checkvmrunning.log > nul
+	:: Shut down the VM to unlock main.img
 	call virtualbox\shutdownvm.bat
-    timeout /t 1
 	call virtualbox\checkvmrunning.bat
-    goto terminate
-)
-
-del logs\checkvmrunning.log > nul
-
+	:terminate
+	findstr /c:"running (" logs\checkvmrunning.log
+	if !errorlevel! == 0 (
+		echo Machine not terminated, trying again...
+		timeout /t 1
+		call virtualbox\shutdownvm.bat
+		timeout /t 1
+		call virtualbox\checkvmrunning.bat
+		goto terminate
+	)
+	del logs\checkvmrunning.log > nul
+)  
+	
 :: Replace main.com in the input folder with the one that was just created
 copy /Y main.com input\main.com >nul 
 
@@ -52,7 +53,7 @@ bfi\bfi.exe -f=output\main.img -b=freedos\boot.bin input
 
 :: Check for errors after bfi command
 if not errorlevel 0 (
-    echo Error creating main.img.
+    echo Error creating output\main.img
     exit /b 1
 )
 
@@ -62,21 +63,22 @@ for %%I in ("output\main.img") do set "fullpath=%%~fI"
 echo - img created successfully
 echo %fullpath%
 
-echo - starting VM
+echo - inserting new floppy
+call virtualbox\insertfloppy.bat
+if !errorlevel! == 0 (
+	echo - floppy inserted, restarting VM
+	call virtualbox\restartvm.bat	
+)
 
-call virtualbox\startvm.bat
-
-:: Start the VM after the img is created successfully
+:: Start the VM if not launched 
 call virtualbox\checkvmrunning.bat
-
 :launch
 findstr /c:"running (" logs\checkvmrunning.log
 if !errorlevel! neq 0 (
-	echo Machine not launched, trying again...
+	echo Machine not launched, trying to start VM
     timeout /t 1
 	call virtualbox\startvm.bat
     timeout /t 1
 	call virtualbox\checkvmrunning.bat
     goto launch
 )
-
