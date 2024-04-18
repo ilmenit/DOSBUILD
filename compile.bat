@@ -4,6 +4,7 @@ setlocal EnableDelayedExpansion
 
 copy /Y input\AUTOEXEC.OLD input\AUTOEXEC.BAT > nul
 
+echo.
 :: Execute NASM and check for errors
 nasm\nasm main.asm -fbin -o main.com > logs\nasm_output.txt 2>&1
 findstr /c:"error:" logs\nasm_output.txt
