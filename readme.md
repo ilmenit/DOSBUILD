@@ -1,8 +1,8 @@
 # DOSBUILD environment
 
-The DOSBUILD environment is a time-saver for writing code in NASM for FreeDOS.
+The DOSBUILD environment is a time-saver for writing a code in NASM for FreeDOS.
 It allows *one-click compilation* and debugging, or even *no-click compilation* (with a watcher over file changes).
-It's integrated with VirtualBox so the correctly compiled *main.asm* file get automatically executed in a FreeDOS VM.
+It's integrated with the VirtualBox so a correctly compiled *main.asm* file get automatically executed in a FreeDOS VM.
 
 ![screenshot](https://raw.githubusercontent.com/ilmenit/DOSBUILD//master/dosbuild.png)
 
@@ -12,7 +12,7 @@ Clone or Download the whole GitHub repo (Code -> Download ZIP).
 
 Build environment must be in C:\DOSBUILD (so you will have folders like C:\DOSBUILD\input).
 
-To automate workflow with VirtualBox you need to add a command line support to it.
+To automate the workflow with VirtualBox you need to add a command line support to it.
 
 Install *VirtualBox 7.0* (if you don't have it yet):
 
