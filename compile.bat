@@ -10,6 +10,6 @@ findstr /c:"error:" logs\nasm_output.txt
 if !errorlevel! == 0 (
     rem echo Error detected in NASM output.
 ) else (
-    del nasm_output.txt
+    del logs\nasm_output.txt > nul
     call make-img.bat
 )
