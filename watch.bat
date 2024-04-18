@@ -1,6 +1,6 @@
 @echo off
 echo First start
-mkdir logs >nul
+mkdir logs 2>nul
 
 setlocal EnableDelayedExpansion
 

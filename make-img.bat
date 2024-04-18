@@ -6,25 +6,25 @@ setlocal EnableDelayedExpansion
 echo - registering VM (if not registered)
 
 :: Register VM if not registered
-call registervm.bat
+call virtualbox\registervm.bat
 
 echo - shutting down VM
 
 del /Y logs\checkvmrunning.log > nul
 
 :: Shut down the VM to unlock main.img
-call shutdownvm.bat
+call virtualbox\shutdownvm.bat
 
-call checkvmrunning.bat
+call virtualbox\checkvmrunning.bat
 
 :terminate
 findstr /c:"running (" logs\checkvmrunning.log
 if !errorlevel! == 0 (
 	echo Machine not terminated, trying again...
     timeout /t 1
-	call shutdownvm.bat
+	call virtualbox\shutdownvm.bat
     timeout /t 1
-	call checkvmrunning.bat
+	call virtualbox\checkvmrunning.bat
     goto terminate
 )
 
@@ -64,19 +64,19 @@ echo %fullpath%
 
 echo - starting VM
 
-call startvm.bat
+call virtualbox\startvm.bat
 
 :: Start the VM after the img is created successfully
-call checkvmrunning.bat
+call virtualbox\checkvmrunning.bat
 
 :launch
 findstr /c:"running (" logs\checkvmrunning.log
 if !errorlevel! neq 0 (
 	echo Machine not launched, trying again...
     timeout /t 1
-	call startvm.bat
+	call virtualbox\startvm.bat
     timeout /t 1
-	call checkvmrunning.bat
+	call virtualbox\checkvmrunning.bat
     goto launch
 )
 
