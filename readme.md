@@ -4,6 +4,8 @@ The DOSBUILD environment is a time-saver for writing code in NASM for FreeDOS.
 It allows *one-click compilation* and debugging, or even *no-click compilation* (with a watcher over file changes).
 It's integrated with VirtualBox so the correctly compiled *main.asm* file get automatically executed in a FreeDOS VM.
 
+![screenshot](dosbuild.png)
+[Contribution guidelines for this project](docs/CONTRIBUTING.md)
 ## Setup
 
 Build environment must be in C:\DOSBUILD (so you will have folders like C:\DOSBUILD\input)
@@ -22,19 +24,19 @@ Install Extension Pack:
 
 ## One-time compilation
 
-Start compile.bat
+Start *compile.bat* to compile *main.asm*
 
 This will compile main.asm file and then will launch make-img.bat that will create a floppy image and will launch VirtualBox.
 
 ## Watch mode
 
-Start watch.bat
+Start *watch.bat* to watch changes of *main.asm*
 
 Watch mode will observe modification of the main.asm file and whenever the file is modified using an external editor, it will launch compile.bat
 
 ## Debugging 
 
-Start debug.bat
+Start *debug.bat* to debug *main.com* compiled from *main.asm*
 
 By default AFD.EXE is used as a debugger.
 Add your own debugger into C:\DOSBUILD\input and set it in C:\DOSBUILD\input\DEBUG.BAT  
