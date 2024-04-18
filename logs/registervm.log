@@ -1,3 +1,0 @@
-VBoxManage.exe: error: Trying to open a VM config 'C:\DOSBUILD\virtualbox\DOSIMG\DOSIMG.vbox' which has the same UUID as an existing virtual machine
-VBoxManage.exe: error: Details: code E_FAIL (0x80004005), component MachineWrap, interface IMachine, callee IUnknown
-VBoxManage.exe: error: Context: "OpenMachine(Bstr(a->argv[0]).raw(), Bstr(strPassword).raw(), machine.asOutParam()))" at line 160 of file VBoxManageMisc.cpp
