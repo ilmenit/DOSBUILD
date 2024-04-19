@@ -1,27 +1,33 @@
-; Example from http://www.sizecoding.org/wiki/Main_Page
+; Example from http://www.sizecoding.org/wiki/Floating-point_Opcodes
 
-	mov		al,0x13				; mode 13h = 320 x 200 in 256 colors
-	int		0x10				; switch videomode
+	push 	0xa000 - 10 - 3 * 20	; video base - 3.5 lines
+	or 		al, 0x13				; mode 13h = 320 x 200 in 256 colors
+	pop 	es						; get aligned video memory base
+	int 	0x10					; switch videomode
 X: 
-	or		al, [bp+si]			; *illusion* - executed ONCE
-	xor		al, 0x68			; *illusion* - executed ONCE
-	mov		dx, 0x79F			; *illusion* - executed ONCE
-	pusha						; push all registers on stack
-	fild 	word	[bx-9]		; x
-	fild 	word	[bx-8]		; y x
-	fpatan						; arc
-	fst 	st1					; arc arc
-	fcos						; cos(arc) arc
-	fimul	dword	[si]		; l*cos(arc) arc
-	fidiv	word	[bx-8]		; l*cos(arc)/x arc
-	fistp	dword	[bx-4]		; arc
-	fimul	word	[bx]		; scaled_arc
-	fistp	word	[bx-5]		; -
-	popa						; pop all registers from stack
-	sub		ah, [bp+si]			; animation along distance
-	xor		al, ah				; XOR scaled_arc with distance
-	and		al, 16 + 8 + 4		; sub palette selection
-	stosb						; write to screen, advance DI
-	mov		ax, 0xCCCD			; the famous
-	mul		di					; Rrrola trick
-	jmp 	short X-1			; *ODD* jump into "int 0x10"
+	sub		dh, [si]				; vertical alignment
+	pusha							; push all registers on stack
+	fild 	word	[bx-9]			; fpustack :  x
+	fild 	word	[bx-8]			; fpustack :  y  x
+	fpatan							; fpustack :  arc
+	fst 	st1						; fpustack :  arc  arc
+	fcos							; fpustack :  cos(arc)  arc
+	fimul	dword	[si]			; fpustack :  l*cos(arc)  arc
+	fidiv	word	[bx-8]			; fpustack :  l*cos(arc)/x  arc
+	fiadd	word	[bp+si]			; fpustack :  l*cos(arc)/x+offset  arc
+	fistp	dword	[bx-7]			; fpustack :  arc
+	fimul	word	[byte si+val]	; fpustack :  scaled_arc
+	fistp	word	[bx-5]			; fpustack :  -
+	popa							; pop all registers from stack
+	xor 	al, cl					; XOR scaled_arc with distance
+	and 	al, 16 + 8 + 2			; sub selecting palette part
+	stosb							; writing to screen
+	mov 	ax, 0xCCCD				; Performing the famous
+	mul 	di						; Rrrola trick
+	jo 		X						; next frame check
+	add 	word [bp+si], byte 23	; change offset smoothly
+	in 		al, 0x60				; check for ...
+	dec 	ax						; ...ESC key
+	jnz 	X						; otherwise continue
+	ret								; quit program
+val:	dw 6519 				; n = 160 * 256 / pi / 2 ; 0x1977
