@@ -1,3 +1,3 @@
-ECHO OFF
+@ECHO OFF
 cls
 main.com

@@ -1,3 +1,4 @@
-ECHO OFF
+@ECHO OFF
 cls
-AFD main.com
+CTMOUSE
+td.exe main.com
